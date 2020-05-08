@@ -1,0 +1,18 @@
+{
+  "name": "koa-fs-router",
+  "version": "1.0.0",
+  "description": "FS Router implementation for KoaJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "koa",
+    "koajs",
+    "router",
+    "fs-router",
+    "fsrouter"
+  ],
+  "author": "Kenneth Hernandez",
+  "license": "MIT"
+}
