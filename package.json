@@ -1,6 +1,6 @@
 {
   "name": "koa-fs-router",
-  "version": "1.0.0",
+  "version": "0.5.0",
   "description": "FS Router implementation for KoaJS",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,11 @@
     "fs-router",
     "fsrouter"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codebykenny/koa-fs-router.git"
+  },
   "author": "Kenneth Hernandez",
+  "homepage": "https://github.com/codebykenny/koa-fs-router#readme",
   "license": "MIT"
 }
