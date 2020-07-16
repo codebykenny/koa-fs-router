@@ -49,12 +49,8 @@ the above tree would generate the following routes:
 **defining a route**
 ```javascript
 // routes/foo/bar.js
-const { send } = require('micro')
-
-// respond to specific methods by exposing their verbs
-module.exports.GET = async function(req, res) {
-  // fs-router decorates your req object with param and query hashes
-  send(res, 200, { params: req.params, query: req.query })
+module.exports = async (ctx) => {
+	ctx.body = "Testing..."
 }
 ```
 
@@ -70,51 +66,10 @@ module.exports = async function(req, res) {
 }
 ```
 
-**works great with async/await**
-```javascript
-const { send, json } = require('micro')
-const qs = require('querystring')
-require('isomorphic-fetch')
-
-module.exports.GET = async function(req, res) {
-  const query = qs.stringify(req.query)
-  const data = await json(req)
-  const res = await fetch(`http://some-url.com?${query}`)
-  const response = await res.json()
-  send(res, 200, response)
-}
-```
-
-**typescript**
-Use esModuleInterop and commonjs to import
-
-```javascript
-// tsconfig.json
-{
-  "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    ...config
-  }
-}
-```
-
-use the `RequestHandler` type from this lib
-```typescript
-import { RequestHandler } from 'fs-router'
-
-export const GET: RequestHandler = async (req, res) => {
-    // req.params and req.query will be typed correctly
-    send(res, 200, { params: req.params, query: req.query })
-}
-```
-
-A full [typescript example](examples/typescript) is available in the [examples directory](examples)
-
 **priority**
 ```javascript
-module.exports.GET = async function(req, res) {
-  send(res, 200, {})
+module.exports.GET = async (ctx) => {
+	ctx.body = "Testing..."
 }
 // all routes are sorted by this property - the higher numbers are matched first.
 // kind of like a z-index for your routes.
@@ -125,8 +80,8 @@ module.exports.priority = -1
 **custom path**
 ```javascript
 // routes/whatever.js
-module.exports.GET = async function(req, res) {
-  send(res, 200, {})
+module.exports.GET = async (ctx) => {
+	ctx.body = "Testing..."
 }
 // exposing a "path" will override the fs-generated one.
 // This is nice if you wanted to avoid making a really deep tree for a one-off path (like for oauth callbacks)
@@ -137,8 +92,8 @@ module.exports.path = '/foo/bar'
 **index routes**
 ```javascript
 // routes/index.js
-module.exports.GET = async function(req, res) {
-  return 'hello!'
+module.exports.GET = async (ctx) => {
+	ctx.body = "Testing..."
 }
 // The above route would be reachable at / and /index.
 // This works for deep paths (/thing/index.js maps to /thing and /thing/index)
@@ -180,22 +135,4 @@ the above tree would generate the following routes:
 /foo
 /foo/thing
 /bar/foo
-```
-
-**Multiple file extensions**
-```javascript
-// index.js
-const { send } = require('micro')
-
-// set up the config to both include .js and .ts files.
-const config = {ext: ['.js', '.ts']}
-
-// pass config to `fs-router` as optional second paramater
-let match = require('fs-router')(__dirname + '/routes', config)
-
-module.exports = async function(req, res) {
-  let matched = match(req)
-  if (matched) return await matched(req, res)
-  send(res, 404, { error: 'Not found' })
-}
 ```
