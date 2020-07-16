@@ -22,14 +22,12 @@ I found [fs-router](https://github.com/jesseditson/fs-router) that did this exac
 **router usage**
 ```javascript
 // index.js
-const { send } = require('micro')
-let match = require('fs-router')(__dirname + '/routes')
+const koa = require('koa')
+const router = require('koa-fs-router')(__dirname + '/routes')
+const app = new koa()
 
-module.exports = async function(req, res) {
-  let matched = match(req)
-  if (matched) return await matched(req, res)
-  send(res, 404, { error: 'Not found' })
-}
+app.use(router)
+app.listen(3000)
 ```
 
 The above usage assumes you have a folder called `routes` next to the `index.js` file, that looks something like this:
