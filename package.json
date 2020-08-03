@@ -1,23 +1,23 @@
 {
-  "name": "koa-fs-router",
-  "version": "0.5.0",
-  "description": "FS Router implementation for KoaJS",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "koa",
-    "koajs",
-    "router",
-    "fs-router",
-    "fsrouter"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/codebykenny/koa-fs-router.git"
-  },
-  "author": "Kenneth Hernandez",
-  "homepage": "https://github.com/codebykenny/koa-fs-router#readme",
-  "license": "MIT"
+    "name": "koa-fs-router",
+    "version": "0.6.0",
+    "description": "FS Router implementation for KoaJS",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "koa",
+        "koajs",
+        "router",
+        "fs-router",
+        "fsrouter"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/codebykenny/koa-fs-router.git"
+    },
+    "author": "Kenneth Hernandez",
+    "homepage": "https://github.com/codebykenny/koa-fs-router#readme",
+    "license": "MIT"
 }
