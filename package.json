@@ -1,6 +1,6 @@
 {
     "name": "koa-fs-router",
-    "version": "0.6.0",
+    "version": "0.7.0",
     "description": "FS Router implementation for KoaJS",
     "main": "index.js",
     "scripts": {

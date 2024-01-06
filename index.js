@@ -48,7 +48,7 @@ function findRoutes(dir, fileExtensions) {
 }
 
 module.exports = function (routesDir, config) {
-    const fileExtensions = config && config.ext && config.ext instanceof Array ? config.ext : ['.js']
+    const fileExtensions = config && config.ext && config.ext instanceof Array ? config.ext : ['.js', '.ts']
 
     const routes = findRoutes(routesDir, fileExtensions)
         /** if filter function is set, filter routes */
