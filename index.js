@@ -59,6 +59,11 @@ module.exports = function (routesDir, config) {
          */
         .map((routeFile) => {
             let route = require(routeFile)
+            
+            if (route.default) {
+                route = route.default
+            }
+            
             let extPattern = new RegExp(path.extname(routeFile) + '$')
             if (!route.path) {
                 route.path = '/'
